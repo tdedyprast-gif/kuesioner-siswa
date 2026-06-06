@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Kuesioner Literasi Digital </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffa65c 0%, #ff7f2a 100%);
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .header {
+            background: rgba(255, 159, 92, 0.18);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 40px;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .section {
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .section h2 {
+            color: #5a4fcf;
+            margin-bottom: 10px;
+        }
+
+        .section p.desc {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .sub-title {
+            background: linear-gradient(90deg, #5cbfa4, #2fa78f);
+            color: white;
+            padding: 14px 18px;
+            border-radius: 14px;
+            margin: 25px 0 18px;
+            font-weight: 600;
+        }
+
+        .question {
+            padding: 20px;
+            border: 1px solid #ececec;
+            border-radius: 16px;
+            margin-bottom: 18px;
+            transition: all .3s ease;
+        }
+
+        .question:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .question p {
+            margin-bottom: 18px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .option {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .options {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .option input {
+            display: none;
+        }
+
+        .option label {
+            display: block;
+            padding: 12px;
+            border-radius: 12px;
+            background: #f5f7ff;
+            cursor: pointer;
+            transition: all .25s ease;
+            border: 2px solid transparent;
+            font-size: 14px;
+        }
+
+        .option input:checked+label {
+            background: linear-gradient(135deg, #ff9d4d, #72c6a3);
+            color: white;
+            border-color: #2fa78f;
+        }
+
+        .legend {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .submit-area {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #ff9d4d, #72c6a3);
+            color: white;
+            border: none;
+            padding: 16px 34px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.03);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+            opacity: 0.9;
+        }
+
+        @media(max-width:768px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form id="kuesionerForm" action="https://script.google.com/macros/s/AKfycbwMDenMUV1iVznHoUbdTpC0-o_VffwwR7C3982R5HtLh_FmsgDvUaKU0IQsSTkDZLAL/exec" method="post" target="hidden_iframe">
+    <div class="container">
+        <div class="header">
+            <h1>Kuesioner Literasi Digital </h1>
+            <p>
+                Kuesioner ini bertujuan untuk mengukur kesiapan, persepsi, dan literasi digital
+                dalam memanfaatkan teknologi Artificial Intelligence (AI) pada pembelajaran Bahasa Indonesia.
+                Mohon berikan jawaban yang paling sesuai dengan kondisi dan pandangan Anda.
+            </p>
+            <div style="margin-top:20px;">
+                <div style="margin-top:20px;">
+                    <label style="display:block;margin-bottom:8px;font-weight:600;">Nama Responden</label>
+                    <input id="nama" name="nama" placeholder="Masukkan nama Anda"
+                        style="width:100%;padding:14px;border:none;border-radius:12px;font-size:15px;" type="text" />
+                </div>
+                <div style="margin-top:20px;">
+                    <label style="display:block;margin-bottom:8px;font-weight:600;">Asal Sekolah</label>
+                    <input id="asal_sekolah" name="asal_sekolah" placeholder="Masukkan asal sekolah Anda"
+                        style="width:100%;padding:14px;border:none;border-radius:12px;font-size:15px;" type="text" />
+                </div>
+            </div>
+        </div>
+                <div class="section">
+            <h2>Aspek kognitif dan berpikir kritis</h2>
+            <p class="desc">Mengukur aspek kognitif dan berpikir kritis siswa terhadap AI.</p>
+            <div class="sub-title">Analisis Tekstual - Kemampuan membedakan hasil kerja manusia vs AI.</div>
+            <div class="question">
+                <p>1. Saya menggunakan AI hanya untuk mencari ide atau kerangka awal. Setelah itu, tugas tetap saya ketik dan susun menggunakan bahasa saya sendiri.</p>
+                <div class="options">
+                    <div class="option"><input id="q1_1" name="q1" type="radio" value="1" /><label for="q1_1">STS</label></div>
+                    <div class="option"><input id="q1_2" name="q1" type="radio" value="2" /><label for="q1_2">TS</label></div>
+                    <div class="option"><input id="q1_3" name="q1" type="radio" value="3" /><label for="q1_3">N</label></div>
+                    <div class="option"><input id="q1_4" name="q1" type="radio" value="4" /><label for="q1_4">S</label></div>
+                    <div class="option"><input id="q1_5" name="q1" type="radio" value="5" /><label for="q1_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="sub-title">Evaluasi/Verifikasi - Kemampuan memverifikasi kebenaran AI melalui teknik lateral reading.</div>
+            <div class="question">
+                <p>2. Saya tidak langsung percaya pada jawaban yang diberikan AI meskipun bahasa yang digunakannya terlihat sangat meyakinkan.</p>
+                <div class="options">
+                    <div class="option"><input id="q2_1" name="q2" type="radio" value="1" /><label for="q2_1">STS</label></div>
+                    <div class="option"><input id="q2_2" name="q2" type="radio" value="2" /><label for="q2_2">TS</label></div>
+                    <div class="option"><input id="q2_3" name="q2" type="radio" value="3" /><label for="q2_3">N</label></div>
+                    <div class="option"><input id="q2_4" name="q2" type="radio" value="4" /><label for="q2_4">S</label></div>
+                    <div class="option"><input id="q2_5" name="q2" type="radio" value="5" /><label for="q2_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="question">
+                <p>3. Saya selalu memeriksa jawaban dari AI untuk memastikan sumber dan kebenaran informasinya.</p>
+                <div class="options">
+                    <div class="option"><input id="q3_1" name="q3" type="radio" value="1" /><label for="q3_1">STS</label></div>
+                    <div class="option"><input id="q3_2" name="q3" type="radio" value="2" /><label for="q3_2">TS</label></div>
+                    <div class="option"><input id="q3_3" name="q3" type="radio" value="3" /><label for="q3_3">N</label></div>
+                    <div class="option"><input id="q3_4" name="q3" type="radio" value="4" /><label for="q3_4">S</label></div>
+                    <div class="option"><input id="q3_5" name="q3" type="radio" value="5" /><label for="q3_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="sub-title">Kesadaran Algoritma - Pemahaman bahwa teks yang dihasilkan AI bukanlah kebenaran mutlak.</div>
+            <div class="question">
+                <p>4. Saya berusaha mengenali apakah sebuah teks hasil AI terasa kaku, tidak logis, atau mengandung kesalahan informasi.</p>
+                <div class="options">
+                    <div class="option"><input id="q4_1" name="q4" type="radio" value="1" /><label for="q4_1">STS</label></div>
+                    <div class="option"><input id="q4_2" name="q4" type="radio" value="2" /><label for="q4_2">TS</label></div>
+                    <div class="option"><input id="q4_3" name="q4" type="radio" value="3" /><label for="q4_3">N</label></div>
+                    <div class="option"><input id="q4_4" name="q4" type="radio" value="4" /><label for="q4_4">S</label></div>
+                    <div class="option"><input id="q4_5" name="q4" type="radio" value="5" /><label for="q4_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Aspek teknologis (penggunaan AI)</h2>
+            <p class="desc">Tingkat familiaritas dan penggunaan AI oleh siswa.</p>
+            <div class="sub-title">Familiaritas Alat</div>
+            <div class="question">
+                <p>5. Saya tahu dan bisa menggunakan berbagai macam aplikasi AI (seperti ChatGPT, Gemini, atau fitur AI di Canva).</p>
+                <div class="options">
+                    <div class="option"><input id="q5_1" name="q5" type="radio" value="1" /><label for="q5_1">STS</label></div>
+                    <div class="option"><input id="q5_2" name="q5" type="radio" value="2" /><label for="q5_2">TS</label></div>
+                    <div class="option"><input id="q5_3" name="q5" type="radio" value="3" /><label for="q5_3">N</label></div>
+                    <div class="option"><input id="q5_4" name="q5" type="radio" value="4" /><label for="q5_4">S</label></div>
+                    <div class="option"><input id="q5_5" name="q5" type="radio" value="5" /><label for="q5_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="sub-title">Efikasi Prompting</div>
+            <div class="question">
+                <p>6. Saya tahu cara mengetik perintah (prompt) ke AI secara spesifik agar hasil yang diberikan sesuai dengan kebutuhan tugas Bahasa Indonesia saya.</p>
+                <div class="options">
+                    <div class="option"><input id="q6_1" name="q6" type="radio" value="1" /><label for="q6_1">STS</label></div>
+                    <div class="option"><input id="q6_2" name="q6" type="radio" value="2" /><label for="q6_2">TS</label></div>
+                    <div class="option"><input id="q6_3" name="q6" type="radio" value="3" /><label for="q6_3">N</label></div>
+                    <div class="option"><input id="q6_4" name="q6" type="radio" value="4" /><label for="q6_4">S</label></div>
+                    <div class="option"><input id="q6_5" name="q6" type="radio" value="5" /><label for="q6_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="question">
+                <p>7. Saya hanya mengetikkan soal atau pertanyaan singkat dari guru ke AI, tanpa menambahkan instruksi khusus apa pun.</p>
+                <div class="options">
+                    <div class="option"><input id="q7_1" name="q7" type="radio" value="1" /><label for="q7_1">STS</label></div>
+                    <div class="option"><input id="q7_2" name="q7" type="radio" value="2" /><label for="q7_2">TS</label></div>
+                    <div class="option"><input id="q7_3" name="q7" type="radio" value="3" /><label for="q7_3">N</label></div>
+                    <div class="option"><input id="q7_4" name="q7" type="radio" value="4" /><label for="q7_4">S</label></div>
+                    <div class="option"><input id="q7_5" name="q7" type="radio" value="5" /><label for="q7_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="sub-title">Personalisasi</div>
+            <div class="question">
+                <p>8. Saya sering menggunakan AI untuk membuat contoh teks (seperti teks negosiasi atau prosedur).</p>
+                <div class="options">
+                    <div class="option"><input id="q8_1" name="q8" type="radio" value="1" /><label for="q8_1">STS</label></div>
+                    <div class="option"><input id="q8_2" name="q8" type="radio" value="2" /><label for="q8_2">TS</label></div>
+                    <div class="option"><input id="q8_3" name="q8" type="radio" value="3" /><label for="q8_3">N</label></div>
+                    <div class="option"><input id="q8_4" name="q8" type="radio" value="4" /><label for="q8_4">S</label></div>
+                    <div class="option"><input id="q8_5" name="q8" type="radio" value="5" /><label for="q8_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="sub-title">Otonomi Belajar</div>
+            <div class="question">
+                <p>9. Saya menggunakan AI untuk memeriksa kesalahan ejaan atau struktur kalimat sebelum tugas saya serahkan kepada guru.</p>
+                <div class="options">
+                    <div class="option"><input id="q9_1" name="q9" type="radio" value="1" /><label for="q9_1">STS</label></div>
+                    <div class="option"><input id="q9_2" name="q9" type="radio" value="2" /><label for="q9_2">TS</label></div>
+                    <div class="option"><input id="q9_3" name="q9" type="radio" value="3" /><label for="q9_3">N</label></div>
+                    <div class="option"><input id="q9_4" name="q9" type="radio" value="4" /><label for="q9_4">S</label></div>
+                    <div class="option"><input id="q9_5" name="q9" type="radio" value="5" /><label for="q9_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="sub-title">Eksplorasi Kreatif</div>
+            <div class="question">
+                <p>10. Saya menggunakan AI untuk mencari ide awal penulisan kreatif (seperti kerangka puisi atau cerpen) yang tidak terpikirkan sebelumnya.</p>
+                <div class="options">
+                    <div class="option"><input id="q10_1" name="q10" type="radio" value="1" /><label for="q10_1">STS</label></div>
+                    <div class="option"><input id="q10_2" name="q10" type="radio" value="2" /><label for="q10_2">TS</label></div>
+                    <div class="option"><input id="q10_3" name="q10" type="radio" value="3" /><label for="q10_3">N</label></div>
+                    <div class="option"><input id="q10_4" name="q10" type="radio" value="4" /><label for="q10_4">S</label></div>
+                    <div class="option"><input id="q10_5" name="q10" type="radio" value="5" /><label for="q10_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="sub-title">Kemandirian (Self-Paced)</div>
+            <div class="question">
+                <p>11. Saya merasa bisa belajar materi Bahasa Indonesia dengan AI kapan saja tanpa harus selalu menunggu instruksi langsung dari guru di kelas.</p>
+                <div class="options">
+                    <div class="option"><input id="q11_1" name="q11" type="radio" value="1" /><label for="q11_1">STS</label></div>
+                    <div class="option"><input id="q11_2" name="q11" type="radio" value="2" /><label for="q11_2">TS</label></div>
+                    <div class="option"><input id="q11_3" name="q11" type="radio" value="3" /><label for="q11_3">N</label></div>
+                    <div class="option"><input id="q11_4" name="q11" type="radio" value="4" /><label for="q11_4">S</label></div>
+                    <div class="option"><input id="q11_5" name="q11" type="radio" value="5" /><label for="q11_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Etika Digital dan Integritas Berbahasa</h2>
+            <p class="desc">Menilai sikap etis dan integritas bahasa dalam penggunaan AI di konteks pembelajaran Bahasa Indonesia.</p>
+            <div class="question">
+                <p>12. Saya selalu mencantumkan keterangan (sitasi) jika sebagian dari ide atau kalimat dalam tugas saya dihasilkan dengan bantuan AI.</p>
+                <div class="options">
+                    <div class="option"><input id="q12_1" name="q12" type="radio" value="1" /><label for="q12_1">STS</label></div>
+                    <div class="option"><input id="q12_2" name="q12" type="radio" value="2" /><label for="q12_2">TS</label></div>
+                    <div class="option"><input id="q12_3" name="q12" type="radio" value="3" /><label for="q12_3">N</label></div>
+                    <div class="option"><input id="q12_4" name="q12" type="radio" value="4" /><label for="q12_4">S</label></div>
+                    <div class="option"><input id="q12_5" name="q12" type="radio" value="5" /><label for="q12_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="question">
+                <p>13. Menyalin seluruh jawaban dari AI tanpa melakukan perubahan sedikit pun adalah bentuk kecurangan akademik.</p>
+                <div class="options">
+                    <div class="option"><input id="q13_1" name="q13" type="radio" value="1" /><label for="q13_1">STS</label></div>
+                    <div class="option"><input id="q13_2" name="q13" type="radio" value="2" /><label for="q13_2">TS</label></div>
+                    <div class="option"><input id="q13_3" name="q13" type="radio" value="3" /><label for="q13_3">N</label></div>
+                    <div class="option"><input id="q13_4" name="q13" type="radio" value="4" /><label for="q13_4">S</label></div>
+                    <div class="option"><input id="q13_5" name="q13" type="radio" value="5" /><label for="q13_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="question">
+                <p>14. Saya merasa bertanggung jawab sepenuhnya atas kebenaran isi teks yang saya buat, meskipun saya menggunakan bantuan AI dalam proses pembuatannya.</p>
+                <div class="options">
+                    <div class="option"><input id="q14_1" name="q14" type="radio" value="1" /><label for="q14_1">STS</label></div>
+                    <div class="option"><input id="q14_2" name="q14" type="radio" value="2" /><label for="q14_2">TS</label></div>
+                    <div class="option"><input id="q14_3" name="q14" type="radio" value="3" /><label for="q14_3">N</label></div>
+                    <div class="option"><input id="q14_4" name="q14" type="radio" value="4" /><label for="q14_4">S</label></div>
+                    <div class="option"><input id="q14_5" name="q14" type="radio" value="5" /><label for="q14_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="question">
+                <p>15. Saat menggunakan AI untuk berinteraksi di media sosial, saya tetap memperhatikan norma kesantunan bahasa Indonesia yang baik dan benar.</p>
+                <div class="options">
+                    <div class="option"><input id="q15_1" name="q15" type="radio" value="1" /><label for="q15_1">STS</label></div>
+                    <div class="option"><input id="q15_2" name="q15" type="radio" value="2" /><label for="q15_2">TS</label></div>
+                    <div class="option"><input id="q15_3" name="q15" type="radio" value="3" /><label for="q15_3">N</label></div>
+                    <div class="option"><input id="q15_4" name="q15" type="radio" value="4" /><label for="q15_4">S</label></div>
+                    <div class="option"><input id="q15_5" name="q15" type="radio" value="5" /><label for="q15_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="question">
+                <p>16. Saya berhati-hati untuk tidak memasukkan data pribadi atau informasi rahasia ke dalam platform AI saat sedang mengerjakan tugas.</p>
+                <div class="options">
+                    <div class="option"><input id="q16_1" name="q16" type="radio" value="1" /><label for="q16_1">STS</label></div>
+                    <div class="option"><input id="q16_2" name="q16" type="radio" value="2" /><label for="q16_2">TS</label></div>
+                    <div class="option"><input id="q16_3" name="q16" type="radio" value="3" /><label for="q16_3">N</label></div>
+                    <div class="option"><input id="q16_4" name="q16" type="radio" value="4" /><label for="q16_4">S</label></div>
+                    <div class="option"><input id="q16_5" name="q16" type="radio" value="5" /><label for="q16_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="question">
+                <p>17. Saya menyadari bahwa teks yang dihasilkan AI bisa mengandung prasangka (bias) atau menyinggung kelompok tertentu, sehingga saya harus menyuntingnya terlebih dahulu.</p>
+                <div class="options">
+                    <div class="option"><input id="q17_1" name="q17" type="radio" value="1" /><label for="q17_1">STS</label></div>
+                    <div class="option"><input id="q17_2" name="q17" type="radio" value="2" /><label for="q17_2">TS</label></div>
+                    <div class="option"><input id="q17_3" name="q17" type="radio" value="3" /><label for="q17_3">N</label></div>
+                    <div class="option"><input id="q17_4" name="q17" type="radio" value="4" /><label for="q17_4">S</label></div>
+                    <div class="option"><input id="q17_5" name="q17" type="radio" value="5" /><label for="q17_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="question">
+                <p>18. Saya lebih bangga mengumpulkan karya hasil pemikiran sendiri daripada karya yang sempurna namun dibuat sepenuhnya oleh AI.</p>
+                <div class="options">
+                    <div class="option"><input id="q18_1" name="q18" type="radio" value="1" /><label for="q18_1">STS</label></div>
+                    <div class="option"><input id="q18_2" name="q18" type="radio" value="2" /><label for="q18_2">TS</label></div>
+                    <div class="option"><input id="q18_3" name="q18" type="radio" value="3" /><label for="q18_3">N</label></div>
+                    <div class="option"><input id="q18_4" name="q18" type="radio" value="4" /><label for="q18_4">S</label></div>
+                    <div class="option"><input id="q18_5" name="q18" type="radio" value="5" /><label for="q18_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Gaya belajar dan personalisasi</h2>
+            <p class="desc">Preferensi gaya belajar dan dukungan AI personalisasi dalam proses pembelajaran.</p>
+            <div class="question">
+                <p>19. Saya lebih suka memperoleh umpan balik/saran perbaikan dari AI dalam proses belajar bahasa.</p>
+                <div class="options">
+                    <div class="option"><input id="q19_1" name="q19" type="radio" value="1" /><label for="q19_1">STS</label></div>
+                    <div class="option"><input id="q19_2" name="q19" type="radio" value="2" /><label for="q19_2">TS</label></div>
+                    <div class="option"><input id="q19_3" name="q19" type="radio" value="3" /><label for="q19_3">N</label></div>
+                    <div class="option"><input id="q19_4" name="q19" type="radio" value="4" /><label for="q19_4">S</label></div>
+                    <div class="option"><input id="q19_5" name="q19" type="radio" value="5" /><label for="q19_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+            <div class="question">
+                <p>20. Saya membutuhkan bantuan AI untuk memberikan kerangka berpikir (outline) ketika saya merasa buntu dalam memulai sebuah tulisan.</p>
+                <div class="options">
+                    <div class="option"><input id="q20_1" name="q20" type="radio" value="1" /><label for="q20_1">STS</label></div>
+                    <div class="option"><input id="q20_2" name="q20" type="radio" value="2" /><label for="q20_2">TS</label></div>
+                    <div class="option"><input id="q20_3" name="q20" type="radio" value="3" /><label for="q20_3">N</label></div>
+                    <div class="option"><input id="q20_4" name="q20" type="radio" value="4" /><label for="q20_4">S</label></div>
+                    <div class="option"><input id="q20_5" name="q20" type="radio" value="5" /><label for="q20_5">SS</label></div>
+                </div>
+                <div class="legend"><span>STS = Sangat Tidak Setuju</span><span>TS = Tidak Setuju</span><span>N = Netral</span><span>S = Setuju</span><span>SS = Sangat Setuju</span></div>
+            </div>
+        </div>
+<div class="submit-area">
+            <button id="submitBtn" type="submit">Kirim Jawaban</button>
+        </div>
+        <div class="footer">
+            © 2026 - Kuesioner Guru
+        </div>
+    </div>
+    </form>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+    <script>
+        const form = document.getElementById("kuesionerForm");
+        const iframe = document.getElementById("hidden_iframe");
+        const submitBtn = document.getElementById("submitBtn");
+        let isSubmitting = false;
+
+        form.addEventListener("submit", function (event) {
+            const nama = document.getElementById("nama").value.trim();
+            if (!nama) {
+                alert("Nama wajib diisi");
+                event.preventDefault();
+                return;
+            }
+
+            const sekolah = document.getElementById("asal_sekolah").value.trim();
+            if (!sekolah) {
+                alert("Asal sekolah wajib diisi");
+                event.preventDefault();
+                return;
+            }
+
+            const totalQuestions = document.querySelectorAll('.question').length;
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!selected) {
+                    alert(`Jawaban nomor ${i} wajib dipilih`);
+                    event.preventDefault();
+                    return;
+                }
+            }
+
+            isSubmitting = true;
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Mengirim...";
+        });
+
+        iframe.addEventListener("load", function () {
+            if (!isSubmitting) return;
+            isSubmitting = false;
+            alert("Jawaban berhasil disimpan!");
+            location.reload();
+        });
+    </script>
+</body>
+
+</html>
